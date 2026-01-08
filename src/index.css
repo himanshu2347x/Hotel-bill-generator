@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Bill styling */
+#bill {
+  background: white;
+}
+
+#bill input {
+  background: transparent;
+}
+
 /* Define A4 page properly */
 @page {
   size: A4;
@@ -22,45 +31,25 @@
     visibility: visible;
   }
 
-#bill {
-  position: fixed;      /* 🔑 anchor to page 1 */
-  top: 0;
-  left: 0;
-
-  width: 190mm;
-  margin: 0 auto;
-  padding: 8mm;
-
-  page-break-before: avoid;
-  page-break-after: avoid;
-  page-break-inside: avoid;
-}
-
-
-  /* Prevent tables from splitting */
-  table,
-  tr,
-  td,
-  th {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
+  #bill {
+    position: fixed;
+    top: 10mm;
+    left: 10mm;
+    width: auto;
+    margin: 0;
+    padding: 0;
   }
 
-  /* Remove Tailwind shadows during print */
+  /* Remove shadows during print */
   .shadow,
   .shadow-lg,
   .shadow-xl {
     box-shadow: none !important;
   }
-}
-@media print {
-  /* Slight scale ONLY for long bills */
-  .lotus-bill {
-    zoom: 0.94;      
-  }
 
-  .kp-bill {
-    zoom: 0.95;
+  /* Hide the download button */
+  .print\\:hidden {
+    display: none !important;
   }
 }
 
