@@ -1,153 +1,169 @@
 export const JyotiLokBill = ({ formData, onInputChange }) => {
     return (
-        <div id="bill" className="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
-            <div className="border-4 border-black rounded-lg p-6">
-                <div className="text-center mb-6">
-                    <h1 className="text-4xl font-bold mb-2">HOTEL JYOTI LOK</h1>
-                    <p className="text-sm">Prince Chouck Simdega (Jh)</p>
-                    <p className="text-sm">MOB. - 9798705094</p>
-                    <p className="text-sm font-semibold">GSTIN - 20AABFH8023P2ZF</p>
+        <div id="bill" className="bg-white p-4 mx-auto" style={{ width: '500px', fontSize: '13px' }}>
+            <div className="border-2 border-black p-3">
+                {/* Header Section - Hotel Info */}
+                <div className="border-b border-black pb-2">
+                    <h1 className="text-xl font-bold mb-1">HOTEL JYOTI LOK</h1>
+                    <p className="text-xs">Prince Chouck Simdega (Jh)</p>
+                    <p className="text-xs">MOB. - 9798705094</p>
+                    <p className="text-xs font-semibold">GSTIN - 20AABFH8023P2ZF</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <label className="block text-sm font-semibold mb-1">Bill NO:</label>
-                        <input
-                            type="text"
-                            name="billNo"
-                            value={formData.billNo}
-                            onChange={onInputChange}
-                            className="w-full border-b-2 border-black pb-1 focus:outline-none focus:border-blue-500"
-                            placeholder="Bill number"
-                        />
+                {/* Guest Details + Bill Details Section */}
+                <div className="flex mt-2 text-xs">
+                    {/* Left - Guest Info */}
+                    <div className="flex-1 border-r border-black pr-2">
+                        <div className="flex mb-1">
+                            <span className="font-semibold" style={{ width: '60px' }}>To Guest</span>
+                            <span className="border-b border-black flex-1">
+                                <input
+                                    type="text"
+                                    name="guestName"
+                                    value={formData.guestName}
+                                    onChange={onInputChange}
+                                    className="w-full focus:outline-none bg-transparent"
+                                />
+                            </span>
+                        </div>
+                        <div className="flex mb-1">
+                            <span style={{ width: '60px' }}></span>
+                            <span className="border-b border-black flex-1">
+                                <input
+                                    type="text"
+                                    name="guestAddress"
+                                    value={formData.guestAddress}
+                                    onChange={onInputChange}
+                                    className="w-full focus:outline-none bg-transparent"
+                                />
+                            </span>
+                        </div>
+                        <div className="flex mb-1">
+                            <span className="font-semibold" style={{ width: '50px' }}>GSTIN</span>
+                            <span className="border-b border-black" style={{ width: '130px' }}>
+                                <input
+                                    type="text"
+                                    name="guestGstin"
+                                    value={formData.guestGstin}
+                                    onChange={onInputChange}
+                                    className="w-full focus:outline-none bg-transparent"
+                                />
+                            </span>
+                            <span className="font-semibold ml-2" style={{ width: '65px' }}>ROOM NO.</span>
+                            <span className="border-b border-black" style={{ width: '40px' }}>
+                                <input
+                                    type="text"
+                                    name="roomNo"
+                                    value={formData.roomNo}
+                                    onChange={onInputChange}
+                                    className="w-full focus:outline-none bg-transparent"
+                                />
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        <label className="block text-sm font-semibold mb-1">Dated:</label>
-                        <input
-                            type="date"
-                            name="dated"
-                            value={formData.dated}
-                            onChange={onInputChange}
-                            className="w-full border-b-2 border-black pb-1 focus:outline-none focus:border-blue-500"
-                        />
+                    {/* Right - Bill Details */}
+                    <div className="pl-2" style={{ width: '130px' }}>
+                        <div className="flex mb-2">
+                            <span className="font-semibold" style={{ width: '45px' }}>Bill NO.</span>
+                            <span className="border-b border-black flex-1">
+                                <input
+                                    type="text"
+                                    name="billNo"
+                                    value={formData.billNo}
+                                    onChange={onInputChange}
+                                    className="w-full focus:outline-none bg-transparent"
+                                />
+                            </span>
+                        </div>
+                        <div className="flex mb-2">
+                            <span className="font-semibold" style={{ width: '45px' }}>Dated</span>
+                            <span className="border-b border-black flex-1">
+                                <input
+                                    type="text"
+                                    name="dated"
+                                    value={formData.dated}
+                                    onChange={onInputChange}
+                                    className="w-full focus:outline-none bg-transparent"
+                                />
+                            </span>
+                        </div>
+                        <div className="flex mb-2">
+                            <span className="font-semibold" style={{ width: '45px' }}>Time</span>
+                            <span className="border-b border-black flex-1">
+                                <input
+                                    type="text"
+                                    name="time"
+                                    value={formData.time}
+                                    onChange={onInputChange}
+                                    className="w-full focus:outline-none bg-transparent"
+                                />
+                            </span>
+                        </div>
                     </div>
                 </div>
 
-                <div className="mb-6">
-                    <label className="block text-sm font-semibold mb-1">To Guest:</label>
-                    <input
-                        type="text"
-                        name="guestName"
-                        value={formData.guestName}
-                        onChange={onInputChange}
-                        className="w-full border-b-2 border-black pb-1 focus:outline-none focus:border-blue-500 mb-2"
-                        placeholder="Guest name"
-                    />
-                    <input
-                        type="text"
-                        name="guestAddress"
-                        value={formData.guestAddress}
-                        onChange={onInputChange}
-                        className="w-full border-b-2 border-black pb-1 focus:outline-none focus:border-blue-500"
-                        placeholder="Address"
-                    />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <label className="block text-sm font-semibold mb-1">GSTIN:</label>
-                        <input
-                            type="text"
-                            name="guestGstin"
-                            value={formData.guestGstin}
-                            onChange={onInputChange}
-                            className="w-full border-b-2 border-black pb-1 focus:outline-none focus:border-blue-500"
-                            placeholder="Guest GSTIN"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-semibold mb-1">ROOM NO:</label>
-                        <input
-                            type="text"
-                            name="roomNo"
-                            value={formData.roomNo}
-                            onChange={onInputChange}
-                            className="w-full border-b-2 border-black pb-1 focus:outline-none focus:border-blue-500"
-                            placeholder="Room number"
-                        />
-                    </div>
-                </div>
-
-                <div className="text-right mb-2">
-                    <label className="text-sm font-semibold">Time: </label>
-                    <input
-                        type="time"
-                        name="time"
-                        value={formData.time}
-                        onChange={onInputChange}
-                        className="border-b-2 border-black pb-1 focus:outline-none focus:border-blue-500"
-                    />
-                </div>
-
-                <table className="w-full border-2 border-black mb-6">
+                {/* Table */}
+                <table className="w-full border-2 border-black mt-2 text-xs">
                     <thead>
-                        <tr className="border-b-2 border-black bg-gray-100">
-                            <th className="border-r-2 border-black p-3 text-left">DESCRIPTION</th>
-                            <th className="p-3 text-right">AMOUNT</th>
+                        <tr className="border-b border-black">
+                            <th className="border-r border-black p-1 text-center">DESCRIPTION</th>
+                            <th className="p-1 text-center" style={{ width: '80px' }}>AMOUNT</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style={{ height: '150px' }} className="border-b-2 border-black">
-                            <td className="border-r-2 border-black p-3">
-                                <input
-                                    type="text"
+                        <tr style={{ height: '80px' }} className="align-top">
+                            <td className="border-r border-black p-1">
+                                <textarea
                                     name="description"
                                     value={formData.description}
                                     onChange={onInputChange}
-                                    className="w-full focus:outline-none"
-                                    placeholder="A/C Room"
+                                    className="w-full h-full focus:outline-none bg-transparent resize-none"
+                                    rows={3}
+                                    style={{ minHeight: '70px' }}
                                 />
                             </td>
-                            <td className="p-3 text-right">
+                            <td className="p-1 text-right">
                                 <input
-                                    type="number"
+                                    type="text"
                                     name="amount"
                                     value={formData.amount}
                                     onChange={onInputChange}
-                                    className="w-full text-right focus:outline-none font-semibold"
-                                    placeholder="2000"
+                                    className="w-full text-right focus:outline-none bg-transparent font-semibold"
                                 />
                             </td>
                         </tr>
                     </tbody>
                 </table>
 
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <label className="block text-sm font-semibold mb-1">In Words:</label>
-                        <input
-                            type="text"
-                            name="amountInWords"
-                            value={formData.amountInWords}
-                            onChange={onInputChange}
-                            className="w-full border-b-2 border-black pb-1 focus:outline-none focus:border-blue-500"
-                            placeholder="Two thousand rupees only"
-                        />
-                    </div>
-                    <div className="text-right">
-                        <p className="text-lg font-bold">{formData.amount || '0'}/-</p>
-                    </div>
-                </div>
-
-                <div className="flex justify-between items-end mt-8">
-                    <div>
-                        <p className="text-sm mb-2">Customer Signature</p>
-                        <div className="border-t-2 border-black w-48"></div>
-                    </div>
-                    <div className="text-right">
-                        <p className="text-sm font-bold mb-2">Hotel Jyoti Lok</p>
-                        <p className="text-sm">Authorised Signature</p>
-                        <div className="border-t-2 border-black w-48"></div>
+                {/* Bottom Section */}
+                <div className="border-2 border-black border-t-0 text-xs">
+                    <div className="flex">
+                        <div className="flex-1 border-r border-black p-2">
+                            <div className="flex items-center">
+                                <span className="font-semibold" style={{ width: '60px' }}>In Words</span>
+                                <span className="border-b border-black flex-1">
+                                    <input
+                                        type="text"
+                                        name="amountInWords"
+                                        value={formData.amountInWords}
+                                        onChange={onInputChange}
+                                        className="w-full focus:outline-none bg-transparent"
+                                    />
+                                </span>
+                            </div>
+                            <div className="mt-4">
+                                <p className="text-xs">Customer Signature</p>
+                                <div className="border-t border-black w-32 mt-3"></div>
+                            </div>
+                        </div>
+                        <div className="p-2 text-right" style={{ width: '100px' }}>
+                            <p className="font-bold text-base">{formData.amount || ''}/-</p>
+                            <div className="mt-6">
+                                <p className="text-xs font-semibold">Hotel Jyoti Lok</p>
+                                <p className="text-xs mt-1">Authorised Signature</p>
+                                <div className="border-t border-black w-20 ml-auto mt-2"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
