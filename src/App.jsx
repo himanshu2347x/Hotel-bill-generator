@@ -43,9 +43,6 @@ export default function HotelBillGenerator() {
     window.print();
   };
 
-
-  
-
   const hotels = [
     { id: 'lotus', name: 'Hotel Lotus Heart', location: 'Latehar, Jharkhand' },
     { id: 'jyoti', name: 'Hotel Jyoti Lok', location: 'Simdega, Jharkhand' },
@@ -53,27 +50,32 @@ export default function HotelBillGenerator() {
   ];
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Hotel Bill Generator</h1>
+        <div className="text-center mb-8">
+          <h1 className="text-5xl font-bold mb-3 text-indigo-900">
+            Hotel Bill Generator
+          </h1>
+          <p className="text-gray-600 text-2xl">Developed by <span className="font-semibold text-green-700">Himanshu Sinha</span></p>
+        </div>
 
         {/* Hotel Selector */}
-        <div className="mb-8 bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-4 text-gray-800 flex items-center gap-2">
-            <Hotel className="w-6 h-6" />
+        <div className="mb-8 bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+          <h2 className="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-3">
+            <Hotel className="w-7 h-7 text-indigo-600" />
             Select Hotel
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {hotels.map(hotel => (
               <button
                 key={hotel.id}
                 onClick={() => setSelectedHotel(hotel.id)}
-                className={`p-6 rounded-lg border-2 transition-all ${selectedHotel === hotel.id
-                    ? 'border-blue-600 bg-blue-50 shadow-lg transform scale-105'
-                    : 'border-gray-300 bg-white hover:border-blue-400'
+                className={`p-6 rounded-xl border-2 transition-all duration-300 ${selectedHotel === hotel.id
+                  ? 'border-indigo-500 bg-indigo-50 shadow-lg transform scale-105'
+                  : 'border-gray-200 bg-white hover:border-indigo-300 hover:shadow-md'
                   }`}
               >
-                <h3 className="font-bold text-lg mb-2">{hotel.name}</h3>
+                <h3 className="font-bold text-xl mb-2 text-gray-800">{hotel.name}</h3>
                 <p className="text-sm text-gray-600">{hotel.location}</p>
               </button>
             ))}
@@ -84,7 +86,7 @@ export default function HotelBillGenerator() {
         <div className="flex justify-center mb-8">
           <button
             onClick={downloadPDF}
-            className="flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105"
+            className="flex items-center gap-3 bg-indigo-600 text-white px-10 py-4 rounded-xl hover:bg-indigo-700 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 font-semibold text-lg"
           >
             <Download className="w-6 h-6" />
             Download Bill as PDF
