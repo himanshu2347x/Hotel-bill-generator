@@ -1,5 +1,6 @@
-import { Hotel } from "lucide-react";
+import {  Hotel } from 'lucide-react';
 
+// Hotel Selector Component
 export const HotelSelector = ({ selectedHotel, onSelectHotel }) => {
     const hotels = [
         { id: 'lotus', name: 'Hotel Lotus Heart', location: 'Latehar, Jharkhand' },
