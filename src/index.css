@@ -9,6 +9,23 @@
   background: transparent;
 }
 
+/* Mobile responsive bill container */
+.bill-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 540px) {
+  .bill-container {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 /* Define A4 page properly */
 @page {
   size: A4;
@@ -16,28 +33,59 @@
 }
 
 @media print {
+  /* Reset html and body to prevent extra pages */
+  html,
   body {
-    margin: 0;
-    padding: 0;
-    background: white;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
+  /* Reset the root container to prevent min-height issues */
+  #root,
+  #root > * {
+    min-height: auto !important;
+    height: auto !important;
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Hide all elements by default */
   body * {
     visibility: hidden;
   }
 
+  /* Show the bill and all its contents */
   #bill,
   #bill * {
-    visibility: visible;
+    visibility: visible !important;
   }
 
+  /* Position bill properly - use absolute instead of fixed for mobile */
   #bill {
-    position: fixed;
-    top: 10mm;
-    left: 10mm;
-    width: auto;
-    margin: 0;
-    padding: 0;
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 500px !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    box-shadow: none !important;
+    /* Prevent page breaks */
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+    break-inside: avoid !important;
+    break-after: avoid !important;
   }
 
   /* Remove shadows during print */
@@ -51,5 +99,10 @@
   .print\\:hidden {
     display: none !important;
   }
-}
 
+  /* Hide min-h-screen elements that cause extra pages */
+  .min-h-screen {
+    min-height: auto !important;
+    height: auto !important;
+  }
+}
