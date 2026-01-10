@@ -1,5 +1,6 @@
 import { Download, Hotel } from 'lucide-react';
 import { useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { JyotiLokBill } from "./components/bills/JyotiLokBill";
 import { KPInnBill } from "./components/bills/KPInnBill";
 import { LotusHeartBill } from "./components/bills/LotusHeartBill";
@@ -51,6 +52,7 @@ export default function HotelBillGenerator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 p-4 sm:p-8">
+      <Analytics />
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-6 sm:mb-8">
           <h1 className="text-3xl sm:text-5xl font-bold mb-2 sm:mb-3 text-indigo-900">
